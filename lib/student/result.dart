@@ -211,10 +211,14 @@ class _resultState extends State<result> {
 // // return subjects;
 //
 // }
+  var total_credit=0;
+  double over_allgp=0;
   DataRow _getDataRow(result) {
     // if(result['CGPA'])
+    total_credit+=int.parse(result['credit']);
+    print(double.parse(result['GP'].toString()));
+    over_allgp+=double.parse(result['GP'].toString())*int.parse(result['credit']);
     return DataRow(
-
       cells: <DataCell>[
         // DataCell( Text('${result['course_code']}',style: TextStyle(fontSize: 20),)),
         DataCell(Container(width: MediaQuery.of(context).size.width/3 ,child:Text('${result['subject_name']}',style: TextStyle(fontSize: 20),))  ),
@@ -576,6 +580,8 @@ class _resultState extends State<result> {
                     // padding: EdgeInsets.symmetric(horizontal: 50),
                     itemCount: data.length,
                     itemBuilder: (context, index) {
+                      total_credit=0;
+                      over_allgp=0;
                       return Column(
                         
                         children:[
@@ -620,13 +626,12 @@ class _resultState extends State<result> {
                                   )),
                             ],
                             rows: List.generate(
-                                data['Semester ${index+1}'].length-1, (index_) => _getDataRow(data['Semester ${index+1}'][index_])),
+                                data['Semester ${index+1}'].length, (index_) => _getDataRow(data['Semester ${index+1}'][index_])),
                           ),
                           scrollDirection: my_axis.Axis.horizontal,
-
                         ),
 
-                            Text("CGPA: ${data['Semester ${index+1}'].last['CGPA']}",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
+                            Text("CGPA: ${over_allgp/total_credit}",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
                         ]
                       );
                     },

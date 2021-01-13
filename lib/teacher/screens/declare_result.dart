@@ -212,7 +212,7 @@ class _declareresultScreenState extends State<declareresult> {
                       "GP":gp_['gp'],
                       "grade":gp_['grade'],
                       "Marks":number,
-                      "subject_name":widget.subjects[i]['subject_iname'],
+                      "subject_name":widget.subjects[i]['subject_name'],
                       "credit":widget.subjects[i]['credit'],
                       "course_no":widget.subjects[i]['course_code']
                     });

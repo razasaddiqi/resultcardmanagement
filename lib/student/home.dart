@@ -285,7 +285,7 @@ class _StudentState extends State<Student> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
                                     Text(
-                                      'Name: ${data_student['name']}' '\nRegistraion: ${season+data_student['year']+"-"+data_student['program']+"-"+data_student['regno'].toString()}' '\nProgram: ${data_student['program']}',
+                                      'Name: ${data_student['name']}' '\nRegistraion: ${season+data_student['year']+"-"+data_student['program'].toString()+"-"+data_student['regno'].toString()}' '\nProgram: ${data_student['program']}',
                                       style: TextStyle(
                                           color: Colors.white, fontWeight: FontWeight.w500),
                                     ),
